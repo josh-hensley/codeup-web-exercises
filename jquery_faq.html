@@ -8,6 +8,19 @@
         .invisible {
             visibility: hidden;
         }
+        .picture-frame {
+            width : 500px;
+            height: 500px;
+            background-size: cover;
+            border-color: gold;
+            border-style: groove;
+            border-width: 1em;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
     </style>
 </head>
 <body>
@@ -45,19 +58,75 @@
             <dt class="hoverable">So I CAN feed the animals?</dt>
             <dd class="invisible">Do what you must, but don't say I didn't warn you.</dd>
         </dl>
+
+        <h3>Lyndon B. Johnson National Historical Park</h3>
+        <p>from <a href="parktrust.org">parktrust.org</a></p>
+        <ul>
+            <li>Lyndon B. Johnson National Historical Park preserves the story of the life of the 36th U.S. president</li>
+            <li>It includes his reconstructed birthplace, boyhood home, grandfather's house, grade school, and the ranch and house in Blanco, TX, often called the “Texas White House.”</li>
+            <li>In 1972, the Johnsons donated the Blanco ranch to NPS and the American people</li>
+            <li>After the president died in 1973, his wife, Lady Bird Johnson, continued to live at the ranch part-time until her death in 2007</li>
+        </ul>
+        <h3>Lake Meredith National Recreation Area</h3>
+        <p>from <a href="parktrust.org">parktrust.org</a></p>
+        <ul>
+            <li>National Park Trust worked with the National Park Service Regional Office in Denver to acquire the last two private properties inside the official boundary of Lake Meredith National Recreation Area</li>
+            <li>The National Park Service uses funds from the Land and Water Conservation Fund (LWCF) to buy land in and adjacent to parks critical to the protection of parks’ natural and cultural resources</li>
+            <li>The land on a mesa overlooking Lake Meredith is part of the story of human habitation there that goes back more than 13,000 years</li>
+            <li>Most notable is evidence of the Antelope Creek people, who occupied the area between AD 1150 and 1450</li>
+        </ul>
+        <h3>San Antonio Missions National Historical Park</h3>
+        <p>from <a href="parktrust.org">parktrust.org</a></p>
+        <ul>
+            <li>San Antonio Missions National Historical Park preserves and protects four of five Spanish Colonial Missions around the city</li>
+            <li>The oldest dates from the early 1700s; the fifth mission, not in the park, is the Alamo</li>
+            <li>The property is part of the area around the missions that was cultivated and fed by the historic canals or acequias</li>
+            <li>The east edge of the property includes a section of the San Juan Acequia</li>
+        </ul>
+        <button id="highlight-last">Highlight Last</button>
+        <div class="container">
+            <div id="pic-left" class="picture-frame"></div>
+            <div id="pic-center" class="picture-frame"></div>
+            <div id="pic-right" class="picture-frame"></div>
+        </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
         "use strict";
         const invis = "invisible";
-        function toggleInvis(e){
-            e.preventDefault();
+        function toggleInvis(){
             $('dd').toggleClass(invis);
             $(this).css("background", "yellow");
             console.log(invis);
             console.log($('dd').html());
         }
+        function highlightLast(){
+            $('ul').each(function(){
+                $(this).children().last().css('background-color', 'yellow');
+            });
+        }
+        function boldListItems(){
+            $(this).next().next().children().css('font-weight', 'bold');
+        }
+        function swapPics(){
+            var pic1 = $('#pic-left').css('background-image');
+            var pic2 = $('#pic-center').css('background-image');
+            var pic3 = $('#pic-right').css('background-image');
+            var pics = [pic1, pic3];
+            var randomPic = pics[Math.round(Math.random())];
+
+            $('#pic-left').css('background-image', pic2);
+            $('#pic-center').css('background-image', randomPic);
+            $('#pic-right').css('background-image', pic2);
+        }
         $('.hoverable').click(toggleInvis);
+        $('#highlight-last').click(highlightLast);
+        $('h3').click(boldListItems);
+        $('#pic-left').css('background-image', 'url(assets/lbj.jpg)');
+        $('#pic-center').css('background-image', 'url(assets/lake-merideth.jpg)');
+        $('#pic-right').css('background-image', 'url(assets/san-antonio.jpg)');
+        $('.picture-frame').click(swapPics);
+
     </script>
 </body>
 </html>
