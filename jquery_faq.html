@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Parks FAQ</title>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>10 Frequently Asked National Parks Questions</h1>
+    <p></p>
+    <main>
+        <dl>
+            <dt class="hoverable">Is it okay to feed the animals?</dt>
+            <dd class="invisible">No, wild animals are very dangerous.  You should keep your distance.</dd>
+
+            <dt class="hoverable">What if they look friendly?</dt>
+            <dd class="invisible">They are not.  Even the cute ones</dd>
+
+            <dt class="hoverable">Why would God make bears look so huggable if I weren't supposed to hug one?</dt>
+            <dd class="invisible">You'll have to ask God that one.  We are straying off topic.  This is an FAQ about the whole park, not just the wildlife.</dd>
+
+            <dt class="hoverable">Can I start a fire?</dt>
+            <dd class="invisible">You can start a fire, as long as you put it out.  That is a perfectly acceptable outdoor activity.  Unless we are under a fire watch, which happens more and more because we're rolling back regulations on industry... ah, this isn't the place.  Next question.</dd>
+
+            <dt class="hoverable">Who owns the National Forest?</dt>
+            <dd class="invisible">Technically, if you pay taxes... You do!</dd>
+
+            <dt class="hoverable">So all of the huggable bears and puppy wolves are mine?</dt>
+            <dd class="invisible">No...</dd>
+
+            <dt class="hoverable">But you said I own them.</dt>
+            <dd class="invisible">Not a question, but I'll answer anyway.  We share the land.  The animals, however, are wild and can be governed by no man.</dd>
+
+            <dt class="hoverable">Who is going to stop me if I domesticate, say, a bald eagle?</dt>
+            <dd class="invisible">The eagle may try and stop you.  With it's very sharp talons.</dd>
+            
+            <dt class="hoverable">Why are there so many rules around what we can and can't do with the wildlife.</dt>
+            <dd class="invisible">Every rule in the National Forest is written in blood.  The park rangers will not always be there to enforce said rules.  Do with that info what you must.</dd>
+
+            <dt class="hoverable">So I CAN feed the animals?</dt>
+            <dd class="invisible">Do what you must, but don't say I didn't warn you.</dd>
+        </dl>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        "use strict";
+        const invis = "invisible";
+        function toggleInvis(e){
+            e.preventDefault();
+            $('dd').toggleClass(invis);
+            $(this).css("background", "yellow");
+            console.log(invis);
+            console.log($('dd').html());
+        }
+        $('.hoverable').click(toggleInvis);
+    </script>
+</body>
+</html>
