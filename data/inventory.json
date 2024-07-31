@@ -38,5 +38,21 @@
             "tool"
         ],
         "price": 15
+    },
+    {
+        "title": "End Nippers",
+        "quantity": 7,
+        "categories": [
+            "tool"
+        ],
+        "price": 7
+    },
+    {
+        "title": "Axe",
+        "quantity": 7,
+        "categories": [
+            "tool", "outdoors"
+        ],
+        "price": 45
     }
 ]
