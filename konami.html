@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+    <h1>Konami Code</h1>
+    <audio id="doom" src="assets/doom.mp3"></audio>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        "use strict";
+
+        const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        var keyStrokes = [];
+        $(document).keyup(function(event){
+            var keyStroke = event.keyCode;
+            keyStrokes.push(keyStroke);
+            for (var i = 0; i < keyStrokes.length; i++){
+                if (keyStrokes[i] != konamiCode[i]){
+                    keyStrokes = [];
+                }
+            }
+            console.log("User keystrokes: " + keyStrokes);
+            if (keyStrokes.length === konamiCode.length){
+                alert("You've unlocked 30 extra lives!");
+                $('body').css("background-color", "red");
+                $('#doom')[0].play();
+            }    
+        });
+    </script>
+</body>
+</html>
