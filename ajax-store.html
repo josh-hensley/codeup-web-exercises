@@ -9,10 +9,13 @@
 
 <h1 class="text-center my-5">My Tool Store</h1>
 <div class="container-fluid d-flex justify-content-center ">
-    <table class="text-center" id="products">
+    <table class="text-center border" id="products">
         <div id="products"></div>
         <tbody id="insertProducts"></tbody>
     </table>
+</div>
+<div class="container text-center my-5">
+    <button class="btn bg-primary text-light" id="refresh">Refresh</button>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -22,7 +25,10 @@
     "use strict";
     // TODO: Create an ajax GET request for /data/inventory.json
     var newHTML = "<tr><th>Title</th><th>Quantity</th><th>Categories</th><th>Price</th></tr>";
-    $.ajax("/data/inventory.json").done(function(data){
+    
+    function updateList(){
+        newHTML = "<tr><th>Title</th><th>Quantity</th><th>Categories</th><th>Price</th></tr>";
+        $.ajax("/data/inventory.json").done(function(data){
         for (var i = 0; i < data.length; i++){
             newHTML += "<tr>";
             newHTML += "<td>" + data[i].title + "</td>";
@@ -33,6 +39,9 @@
         }
         $('#insertProducts').html(newHTML);
     });
+    }
+    updateList();
+    $('#refresh').click(updateList);
 
 
     // TODO: Take the data from inventory.json and append it to the products table
