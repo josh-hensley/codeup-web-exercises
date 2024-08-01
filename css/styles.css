@@ -1,0 +1,94 @@
+body {
+    background-image: linear-gradient(rgb(2, 7, 17), rgba(33, 16, 80, 0.459)), url("../img/pexels-felixmittermeier-956999.jpg");
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: repeat-y;
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+    color:antiquewhite;
+    text-align:center;
+}
+
+main, header {
+    text-align:center;
+    padding: 1em;
+}
+
+.mission {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(126, 122, 122, 0.24), rgba(0, 0, 0, 0));
+    padding: 5em;
+}
+
+img{
+    max-width: 540px;
+    max-height: 540px;
+    padding: 1em;
+    border-radius: 3em;
+}
+
+h1, h2, h4 {
+    color: azure;
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+ul {
+    list-style: inside;
+    color:antiquewhite;
+    background-color: rgba(109, 90, 131, 0.075);
+    text-align:left;
+    margin:auto;
+    padding: 1em;
+    width: 15em;
+    border-radius: 1em;
+}
+
+footer {
+    text-align: center;
+}
+
+.baskervville-sc-regular {
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  table {
+    margin:auto;
+    border-radius: 1em;
+    background-color: rgba(109, 90, 131, 0.329);
+  }
+  
+  #table tr, td {
+    padding: 1em;
+    font-size: 0.8em;
+  }
+
+  footer {
+    padding: 1em;
+  }
+
+  /* unvisited link (:link) */
+a:link {
+    color:rgb(167, 160, 160);
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:rgb(196, 187, 187);
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:rgb(159, 5, 173);
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:rgb(0, 0, 0);
+}

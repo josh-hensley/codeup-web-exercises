@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register With Us</title>
+</head>
+<body>
+    <form method="post" action="https://foil-confused-odometer.glitch.me">
+        <section class="user-info">
+            <label for="email">
+                Email:
+            </label>
+            <input type="text" name="email" placeholder="Email">
+            <label for="password">
+                Password:
+            </label>
+            <input type="text" name="password" placeholder="Password">
+            <br>
+            <label for="bio">
+                Bio:
+            </label>
+            <textarea name="bio">
+                Write your bio
+            </textarea>
+        </section>
+
+        <section class="how-did-you-find-us">
+            <p><strong>How did you hear about us?</strong></p>
+            <label for="billboard">
+                <input id="billboard" type="radio" name="heard" value="billboard">Billboard
+            </label><br>
+            <label for="radio-advertisement">
+                <input id="radio-advertisement" type="radio" name="heard" value="radio-advertisement">Radio Advertisement
+            </label><br>
+            <label for="internet-advertisement">
+                <input id="internet-advertisement" type="radio" name="heard" value="internet-advertisement">Internet Advertisement 
+            </label><br>
+            <label for="other">
+                <input id="other" type="radio" name="heard" value="other">Other 
+            </label><br>
+        </section>
+
+        <section class="web-broswer">
+            <h2>What web browser are you using?</h2>
+            <select name="web-browser">
+                <option>Chrome</option>
+                <option>Edge</option>
+                <option>Firefox</option>
+                <option>Opera</option>
+                <option>Safari</option>
+                <option>Other</option>
+            </select>
+        </section>
+
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+</html>

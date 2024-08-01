@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    background:lightgray;
+    margin: auto 0;
+    padding: .1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 1em;
+}
+
+.nav-item a{
+    text-decoration: none;
+    font-family: "Work Sans";
+    color: black;
+}
+
+.left {
+    margin-right: auto;
+}
+
+.center {
+    font-size: 3em;
+    padding: 0 .2em;
+    font-family: Montserrat;
+    margin: auto 0;
+    position: absolute;
+
+}
+
+.right {
+    margin-left: auto;
+    
+}
+
+.nav-item a:hover {
+    color:blue;
+}
