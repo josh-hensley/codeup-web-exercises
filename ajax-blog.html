@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Ajax Blog</title>
+</head>
+<body>
+    <div class="container">
+        <div id="posts"></div>
+    </div>
+    <div class="container">
+        <fieldset class="form-control bg-light">
+            <legend>Write Blog Post</legend>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label px-3">Title:</label><input type="input" id="new-title">
+                </div>
+                <div class="col">
+                    <label class="form-label px-3">Date:</label><input type="input" id="new-date">
+                </div>
+                <div class="col">
+                    <label class="form-label px-3">Categories:</label><input id="new-categories">
+                </div>
+            </div>
+            <label>Post:</label><textarea class="form-control"></textarea>
+            <button class="btn btn-secondary m-2" id="submit">Submit</button>
+        </fieldset>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        function updateBlog(data){
+            $.ajax("/data/blog.json").done(function(data){
+                var html = "";
+                console.log(data);
+                for (var i = 0; i < data.length; i++){
+                    html += '<h3 class="text-center">' + data[i].title + '</h3>';
+                    html += '<article>' + data[i].content + "</article>";
+                    html += '<blockquote class="text-end">' + data[i].date + '</blockquote>';
+                }
+                $('#posts').html(html);
+            });
+        }
+        updateBlog();
+        $('#submit').click(function(){
+            console.log("clicked");
+            $.post("/data/blog.json",{
+                title : $("#new-title").value,
+                content : $('#post').value,
+                categories: $('#new-categories').value,
+                date: $('#new-date').value
+            })
+            updateBlog();
+        });
+    </script>
+</body>
+</html>
