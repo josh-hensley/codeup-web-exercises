@@ -24,7 +24,7 @@
                     <label class="form-label px-3">Categories:</label><input class="form-control" id="new-categories">
                 </div>
             </div>
-            <label>Post:</label><textarea class="form-control"></textarea>
+            <label>Post:</label><textarea class="form-control" id="post"></textarea>
             <button class="btn btn-secondary m-2" id="submit">Submit</button>
         </fieldset>
     </div>
@@ -45,12 +45,17 @@
         }
         updateBlog();
         $('#submit').click(function(){
-            console.log("clicked");
+            console.log({
+                title : $("#new-title").val(),
+                content : $('#post').val(),
+                categories: $('#new-categories').val(),
+                date: $('#new-date').val()
+            });
             $.post("/data/blog.json",{
-                title : $("#new-title").value,
-                content : $('#post').value,
-                categories: $('#new-categories').value,
-                date: $('#new-date').value
+                title : $("#new-title").val(),
+                content : $('#post').val(),
+                categories: $('#new-categories').val(),
+                date: $('#new-date').val()
             })
             updateBlog();
         });
