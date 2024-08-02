@@ -30,7 +30,6 @@
             var popupHTML = "<p>Repertory Company Theatre</p>"
             var popup = new mapboxgl.Popup().setHTML(popupHTML);
             var marker = new mapboxgl.Marker().setLngLat(info).addTo(map).setPopup(popup);
-            popup.addTo(map);
         }
         geocode("770 N Coit Rd, Richardson, TX 75080", accessToken).then(function(result){
             placeMarkerAndPopup(result, map);
