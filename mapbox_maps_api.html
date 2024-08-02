@@ -62,9 +62,11 @@
                 location : geocode("518 W Arapaho Rd, Richardson, TX 75080"),
                 namHTML : "<p>The Core Theatre</p>"
             }
-        ]
-            
+        ]   
         // place marker and popup at each 
+        for (var i = 0; i < theatres.length; i++){
+            placeMarkerAndPopup(theatres[i].location, map, theatres[i].nameHTML);
+        }
         
         
 
