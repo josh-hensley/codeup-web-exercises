@@ -48,8 +48,23 @@
             console.log(result);
         });
 
-        // get all geocode results and put them into variables
-        // 
+        // get all geocode results and put them into objects with geocode location and popupHTML.
+        var theatres = [
+            {
+                location : geocode("770 N Coit Rd, Richardson, TX 75080"),
+                nameHTML : "<p>Repertory Company Theatre</p>"
+            },
+            {
+                location : geocode("1509 H Ave, Plano, TX 75074"),
+                namHTML : "<p>Courtyard Theatre</p>"
+            },
+            {
+                location : geocode("518 W Arapaho Rd, Richardson, TX 75080"),
+                namHTML : "<p>The Core Theatre</p>"
+            }
+        ]
+            
+        // place marker and popup at each 
         
         
 
