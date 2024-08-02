@@ -66,16 +66,12 @@
 
         // place marker and popup at each 
         for (var i = 0; i < theatres.length; i++){
-            let HTML = theatres[i].nameHTML;
-            geocode(theatres[i].address, accessToken).then(function(result){
-                placeMarkerAndPopup(result, map, HTML);
+            let theatre = theatres[i];
+            geocode(theatre.address, accessToken).then(function(result){
+                placeMarkerAndPopup(result, map, theatre.nameHTML);
+                map.setCenter(result);
             });
         };
-        
-        // find center of all theatres and set zoom
-        function setZoomAndCenter(){
-            
-        }
 
 
     </script>
