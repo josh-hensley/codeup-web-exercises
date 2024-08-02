@@ -30,45 +30,53 @@
             var popup = new mapboxgl.Popup().setHTML(popupHTML);
             var marker = new mapboxgl.Marker().setLngLat(info).addTo(map).setPopup(popup);
         }
-        geocode("770 N Coit Rd, Richardson, TX 75080", accessToken).then(function(result){
-            var popupHTML = "<p>Repertory Company Theatre</p>"
-            placeMarkerAndPopup(result, map, popupHTML);
-            console.log(result);
-            map.setCenter(result);
-            map.setZoom(18);
-        });
-        geocode("1509 H Ave, Plano, TX 75074", accessToken).then(function(result){
-            var popupHTML = "<p>Courtyard Theatre</p>"
-            placeMarkerAndPopup(result, map, popupHTML);
-            console.log(result);
-        });
-        geocode("518 W Arapaho Rd, Richardson, TX 75080", accessToken).then(function(result){
-            var popupHTML = "<p>The Core Theatre</p>"
-            placeMarkerAndPopup(result, map, popupHTML);
-            console.log(result);
-        });
+        // geocode("770 N Coit Rd, Richardson, TX 75080", accessToken).then(function(result){
+        //     var popupHTML = "<p>Repertory Company Theatre</p>"
+        //     placeMarkerAndPopup(result, map, popupHTML);
+        //     console.log(result);
+        //     map.setCenter(result);
+        //     map.setZoom(18);
+        // });
+        // geocode("1509 H Ave, Plano, TX 75074", accessToken).then(function(result){
+        //     var popupHTML = "<p>Courtyard Theatre</p>"
+        //     placeMarkerAndPopup(result, map, popupHTML);
+        //     console.log(result);
+        // });
+        // geocode("518 W Arapaho Rd, Richardson, TX 75080", accessToken).then(function(result){
+        //     var popupHTML = "<p>The Core Theatre</p>"
+        //     placeMarkerAndPopup(result, map, popupHTML);
+        //     console.log(result);
+        // });
 
         // get all geocode results and put them into objects with geocode location and popupHTML.
         var theatres = [
             {
-                location : geocode("770 N Coit Rd, Richardson, TX 75080"),
-                nameHTML : "<p>Repertory Company Theatre</p>"
+                "address" : "770 N Coit Rd, Richardson, TX 75080",
+                "nameHTML" : "<p>Repertory Company Theatre</p>"
             },
             {
-                location : geocode("1509 H Ave, Plano, TX 75074"),
-                namHTML : "<p>Courtyard Theatre</p>"
+                "address" : "1509 H Ave, Plano, TX 75074",
+                "nameHTML" : "<p>Courtyard Theatre</p>"
             },
             {
-                location : geocode("518 W Arapaho Rd, Richardson, TX 75080"),
-                namHTML : "<p>The Core Theatre</p>"
+                "address" : "518 W Arapaho Rd, Richardson, TX 75080",
+                "nameHTML" : "<p>The Core Theatre</p>"
             }
-        ]   
+        ];   
+
         // place marker and popup at each 
         for (var i = 0; i < theatres.length; i++){
-            placeMarkerAndPopup(theatres[i].location, map, theatres[i].nameHTML);
+            let HTML = theatres[i].nameHTML;
+            geocode(theatres[i].address, accessToken).then(function(result){
+                placeMarkerAndPopup(result, map, HTML);
+            });
+        };
+        
+        // find center of all theatres and set zoom
+        function setZoomAndCenter(){
+            
         }
-        
-        
+
 
     </script>
     
