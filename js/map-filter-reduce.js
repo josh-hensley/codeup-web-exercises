@@ -40,5 +40,19 @@ let threeLanguages = users.filter(u => u.languages >= 3);
 
 let emails = users.map(u => u.email);
 
+let totalYearsExperience = users.yearsOfExperience.reduce((accum, curr) => accum + curr);
+
+let averageYearsExperience = totalYearsExperience / users.length;
+
+let longestEmail = users.reduce(function(accum, curr){
+    if (accum.length < curr.length){
+        accum = curr;
+    };
+    return accum;
+})
+
+let instructors = "Your instructors are " + users.name.reduce((accu, curr) => accu + curr + ", ");
+
+
 
 
