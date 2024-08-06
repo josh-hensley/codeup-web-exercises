@@ -6,17 +6,24 @@
     <title>Weather Map</title>
 </head>
 <body>
-    <div id="weather-map"></div>
+    <h1>Rowlett Weather</h1>
+    <div>
+        <h2>Temperature:</h2>
+        <p id="temp"></p>
+        <h2>Five Day Forecast:</h2>
+        <div id="five-day-forecast"></div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="js/keys.js"></script>
     <script>
-        const OPEN_WEATHER_APPID = openWeatherDefaultKey;
-        $.get("http://api.openweathermap.org/data/2.5/weather", {
-            APPID: OPEN_WEATHER_APPID,
-            q:     "Rowlett, TX, US"
-        }).done(function(data){
-            console.log(data)
+        var lat = 96.5639;
+        var lon = 32.9029;
+        var key = openWeatherDefaultKey;
+        var weather = $.get("api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&appid="+ key).done(function(data){
+            console.log(data);
+            console.log(data.weather[0].description)
         });
+        $("#temp").html("<p>Temperature</p>")
     </script>
 
 </body>
