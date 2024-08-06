@@ -19,7 +19,12 @@
         var lat = 96.5639;
         var lon = 32.9029;
         var key = openWeatherDefaultKey;
-        var weather = $.get("api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&appid="+ key).done(function(data){
+        $.get("api.openweathermap.org/data/3.0/onecall", {
+            APPID: key,
+            lat: lat,
+            lon: lon, 
+            units: "imperial"
+        }).done(function(data){
             console.log(data);
             console.log(data.weather[0].description)
         });
